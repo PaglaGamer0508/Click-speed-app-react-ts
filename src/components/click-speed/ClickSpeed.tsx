@@ -1,5 +1,7 @@
 import React from "react";
 import "./style.scss";
+import PlusIcon from "../../icons/plus.svg"
+import ResetIcon from "../../icons/reset.svg"
 
 const ClickSpeed: React.FC = () => {
   return (
@@ -40,8 +42,8 @@ const ClickSpeed: React.FC = () => {
       {/* Button Section */}
       <div id="btn-section">
         <span>Click the + button to start:</span>
-        <button id="plus-btn">+</button>
-        <button id="reset-btn">X</button>
+        <button id="plus-btn"><img src={PlusIcon} alt="Plus" /></button>
+        <button id="reset-btn"><img src={ResetIcon} alt="Reset" /></button>
       </div>
     </div>
   );
