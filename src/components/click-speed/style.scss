@@ -130,26 +130,24 @@
   #btn-section {
     button {
       width: 100%;
-      border-radius: .2rem;
+      border-radius: 0.2rem;
       border: none;
       transition: all 50ms linear;
+
+      &:active {
+        transform: scale(0.97);
+      }
     }
 
-    #plus-btn{
+    #plus-btn {
       height: 9rem;
       margin-bottom: 1.5rem;
       background: $primary-button-color;
-      &:active{
-        transform: scale(0.97);
-      }
     }
 
-    #reset-btn{
+    #reset-btn {
       height: 5rem;
       background: $button-color;
-      &:active{
-        transform: scale(0.97);
-      }
     }
   }
 }
