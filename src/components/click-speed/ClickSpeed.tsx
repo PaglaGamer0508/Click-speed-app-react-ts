@@ -1,33 +1,47 @@
 import React from "react";
-import "./clickSpeed.scss"
+import "./style.scss";
 
 const ClickSpeed: React.FC = () => {
   return (
-    <div className="container">
+    <div id="click-speed-container">
+      {/* Time Section */}
       <div id="time-section">
-        <div className="times">1 sec</div>
-        <div className="times">5 sec</div>
-        <div className="times">10 sec</div>
-        <div className="times">15 sec</div>
-        <div className="times">20 sec</div>
-        <div className="times">30 sec</div>
+        <button className="times">1 sec</button>
+        <button className="times">5 sec</button>
+        <button className="times">10 sec</button>
+        <button className="times">15 sec</button>
+        <button className="times">20 sec</button>
+        <button className="times">30 sec</button>
       </div>
+
+      {/* Time Remaining Section */}
       <div id="time-remaining-section">
-        <input type="text" id="time-remaining" disabled />
-        <div className="label"></div>
+        <div className="time-remaining-section-label">Time Remaining</div>
+        <input type="text" id="time-remaining" disabled value={10} />
+        <div className="time-remaining-section-label">seconds</div>
       </div>
-      <div id="click-setion">
-        <div className="click-elements">
-          <input type="text" id="click-per-second" disabled />
-          <div className="label"></div>
+
+      {/* Click Section */}
+      <div id="click-section">
+        <div className="click-elements" id="click-per-second">
+          <span className="">Clicks per second</span>
+          <div id="click-input-elements">
+            <input type="text" disabled value={10} />
+            <div className="label">cps</div>
+          </div>
         </div>
-        <div className="click-elements">
-          <input type="text" id="total-clicks" disabled />
+
+        <div className="click-elements" id="total-clicks">
+          <span className="">Clicks</span>
+          <input type="text" disabled value={10} />
         </div>
       </div>
+
+      {/* Button Section */}
       <div id="btn-section">
-        <button id="add-btn">+</button>
-        <button id="restart-btn">X</button>
+        <span>Click the + button to start:</span>
+        <button id="plus-btn">+</button>
+        <button id="reset-btn">X</button>
       </div>
     </div>
   );

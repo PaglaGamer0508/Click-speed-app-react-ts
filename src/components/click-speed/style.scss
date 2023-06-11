@@ -1,0 +1,155 @@
+@import "../../scss/variables";
+
+#click-speed-container {
+  max-width: 32rem;
+  height: 34rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  background: $background-color;
+  border-radius: 0.5rem;
+
+  @media (max-width: 550px) {
+    width: 95%;
+  }
+
+  span {
+    margin-bottom: 0.8rem;
+    color: $text-color;
+  }
+
+  input {
+    width: 100%;
+    height: 3rem;
+    text-align: center;
+    font-size: 1.5rem;
+    color: black;
+    border: 2px solid #6e979e;
+    background: $primary-color;
+  }
+
+  #time-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    .times {
+      width: 100%;
+      text-align: center;
+      height: 3rem;
+      background: $secondary-button-color;
+      border: none;
+
+      &:hover {
+        background: $secondary-button-color-hover;
+      }
+
+      &:active {
+        background: $secondary-button-color;
+      }
+
+      &:first-child {
+        border-radius: 0.2rem 0 0 0.2rem;
+      }
+
+      &:last-child {
+        border-radius: 0 0.2rem 0.2rem 0;
+      }
+    }
+  }
+
+  #time-remaining-section {
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    background: $primary-color;
+    border-radius: 0.2rem;
+    margin-bottom: 1rem;
+    border: 2px solid #6e979e;
+
+    .time-remaining-section-label {
+      display: grid;
+      place-items: center;
+      padding: 0 1rem;
+      height: 100%;
+
+      &:first-child {
+        border-radius: 0.2rem 0 0 0.2rem;
+      }
+
+      &:last-child {
+        border-radius: 0 0.2rem 0.2rem 0;
+      }
+    }
+  }
+
+  #click-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    .click-elements {
+      display: flex;
+      width: 48%;
+    }
+
+    #click-per-second {
+      display: flex;
+      flex-direction: column;
+
+      #click-input-elements {
+        display: flex;
+        border-radius: 0.2rem;
+        background: $primary-color;
+        border: 2px solid #6e979e;
+
+        input {
+          border: none;
+          border-right: 2px solid #6e979e;
+        }
+
+        .label {
+          display: grid;
+          place-items: center;
+          padding: 0 1rem;
+        }
+      }
+    }
+
+    #total-clicks {
+      display: flex;
+      flex-direction: column;
+
+      input {
+        border-radius: 0.2rem;
+      }
+    }
+  }
+
+  #btn-section {
+    button {
+      width: 100%;
+      border-radius: .2rem;
+      border: none;
+      transition: all 50ms linear;
+    }
+
+    #plus-btn{
+      height: 9rem;
+      margin-bottom: 1.5rem;
+      background: $primary-button-color;
+      &:active{
+        transform: scale(0.97);
+      }
+    }
+
+    #reset-btn{
+      height: 5rem;
+      background: $button-color;
+      &:active{
+        transform: scale(0.97);
+      }
+    }
+  }
+}
