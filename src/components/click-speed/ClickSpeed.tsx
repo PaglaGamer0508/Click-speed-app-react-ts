@@ -1,9 +1,14 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import "./style.scss";
 import { GrPowerReset } from "react-icons/gr";
 import { AiOutlinePlus } from "react-icons/ai";
+import { ModalContext } from "../context/ModalContext";
 
-const ClickSpeed: React.FC = () => {
+interface SpeedRank {
+  clickSpeedRank: (speed: number) => void;
+}
+
+const ClickSpeed: React.FC<SpeedRank> = ({ clickSpeedRank }) => {
   const [click, setClick] = useState(0);
   const [timer, setTimer] = useState(5);
   const [clickPerSec, setClickPerSec] = useState(0.0);
@@ -13,7 +18,10 @@ const ClickSpeed: React.FC = () => {
   const timeOutRef = useRef<number | undefined>();
   const intervalRef = useRef<number | undefined>();
 
-  // ******************* All the useEffect goes here *************************
+  const modalContext = useContext(ModalContext);
+  const toggleModal = modalContext?.toggleModal;
+
+  // ******************* All the useEffect goes below here *************************
 
   useEffect(() => {
     const storedHighScore = localStorage.getItem("highScore");
@@ -38,7 +46,16 @@ const ClickSpeed: React.FC = () => {
           setHighScore(clickPerSec);
           localStorage.setItem("highScore", clickPerSec.toString());
         }
-        setClickPerSec(clickPerSec);
+
+        // This funtion is for passing the value to the parent element
+        clickSpeedRank(clickPerSec);
+        // This funtion is using the context for the rank modal
+        if (toggleModal) {
+          toggleModal();
+          setTimeout(() => {
+            toggleModal();
+          }, 2000);
+        }
       }, timer * 1000);
 
       setClickPerSec(click / favTimer);
@@ -79,14 +96,17 @@ const ClickSpeed: React.FC = () => {
     setFavTimer(seconds);
     setClick(0);
     clearInterval(intervalRef.current);
+    clickSpeedRank(0);
+    setDisablePlusButton(false);
   };
 
   const handleResetClick = () => {
     setClick(0);
     setClickPerSec(0);
-    setDisablePlusButton(false);
     setTimer(favTimer);
     clearInterval(intervalRef.current);
+    clickSpeedRank(0);
+    setDisablePlusButton(false);
   };
 
   return (
@@ -143,7 +163,7 @@ const ClickSpeed: React.FC = () => {
 
       {/* Button Section */}
       <div id="btn-section">
-        <span>Click the + button to start:</span>
+        <span>Click the + button to start</span>
         <button
           id="plus-btn"
           onClick={HandlePlusClick}
@@ -154,7 +174,7 @@ const ClickSpeed: React.FC = () => {
             disablePlusButton ? { pointerEvents: "none", opacity: ".5" } : {}
           }
         >
-          <AiOutlinePlus size={35} />
+          <AiOutlinePlus size={40} />
         </button>
 
         <button id="reset-btn" onClick={handleResetClick}>
