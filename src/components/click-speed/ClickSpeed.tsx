@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
-import "./style.scss";
+import "./click-speed.scss";
 import { GrPowerReset } from "react-icons/gr";
 import { AiOutlinePlus } from "react-icons/ai";
 import { ModalContext } from "../context/ModalContext";
@@ -11,17 +11,15 @@ interface SpeedRank {
 const ClickSpeed: React.FC<SpeedRank> = ({ clickSpeedRank }) => {
   const [click, setClick] = useState(0);
   const [timer, setTimer] = useState(5);
-  const [clickPerSec, setClickPerSec] = useState(0.0);
   const [favTimer, setFavTimer] = useState(5);
   const [highScore, setHighScore] = useState(0);
   const [disablePlusButton, setDisablePlusButton] = useState(false);
   const timeOutRef = useRef<number | undefined>();
   const intervalRef = useRef<number | undefined>();
+  const clickPerSecRef = useRef(0.0); // useRef for clickPerSec
 
   const modalContext = useContext(ModalContext);
   const toggleModal = modalContext?.toggleModal;
-
-  // ******************* All the useEffect goes below here *************************
 
   useEffect(() => {
     const storedHighScore = localStorage.getItem("highScore");
@@ -34,43 +32,29 @@ const ClickSpeed: React.FC<SpeedRank> = ({ clickSpeedRank }) => {
   }, []);
 
   useEffect(() => {
-    setClickPerSec(favTimer - timer !== 0 ? click / (favTimer - timer) : 0);
-  }, [timer, click, favTimer]);
-
-  useEffect(() => {
     if (!timer) {
       timeOutRef.current = setTimeout(() => {
         setDisablePlusButton(true);
         clearTimeout(timeOutRef.current);
-        if (clickPerSec > highScore) {
-          setHighScore(clickPerSec);
-          localStorage.setItem("highScore", clickPerSec.toString());
+        if (clickPerSecRef.current > highScore) {
+          setHighScore(clickPerSecRef.current);
+          localStorage.setItem("highScore", clickPerSecRef.current.toString());
         }
+        clickSpeedRank(clickPerSecRef.current);
 
-        // This funtion is for passing the value to the parent element
-        clickSpeedRank(clickPerSec);
-        // This funtion is using the context for the rank modal
         if (toggleModal) {
           toggleModal();
-          setTimeout(() => {
-            toggleModal();
-          }, 2000);
         }
       }, timer * 1000);
-
-      setClickPerSec(click / favTimer);
     }
   }, [timer]);
 
-  // ***************** All the functions goes below here **********************
-  // This fuction is for preventing space bar click
   const handleKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
     if (event.key === " ") {
       event.preventDefault();
     }
   };
 
-  // This is for starting the timer
   const startTimer = () => {
     intervalRef.current = setInterval(() => {
       setTimer((prevTimer) => {
@@ -98,16 +82,25 @@ const ClickSpeed: React.FC<SpeedRank> = ({ clickSpeedRank }) => {
     clearInterval(intervalRef.current);
     clickSpeedRank(0);
     setDisablePlusButton(false);
+    clickPerSecRef.current = 0;
   };
 
   const handleResetClick = () => {
     setClick(0);
-    setClickPerSec(0);
     setTimer(favTimer);
     clearInterval(intervalRef.current);
     clickSpeedRank(0);
     setDisablePlusButton(false);
+    clickPerSecRef.current = 0;
   };
+
+  useEffect(() => {
+    if (favTimer - timer !== 0) {
+      clickPerSecRef.current = click / (favTimer - timer);
+    } else {
+      clickPerSecRef.current = 0;
+    }
+  }, [click, timer]);
 
   return (
     <div id="click-speed-container">
@@ -150,7 +143,15 @@ const ClickSpeed: React.FC<SpeedRank> = ({ clickSpeedRank }) => {
         <div className="click-elements" id="click-per-second">
           <span className="">Clicks per second</span>
           <div id="click-input-elements">
-            <input type="text" disabled value={clickPerSec.toFixed(2)} />
+            <input
+              type="text"
+              disabled
+              value={
+                isNaN(clickPerSecRef.current)
+                  ? 0
+                  : clickPerSecRef.current.toFixed(2)
+              }
+            />
             <div className="label">cps</div>
           </div>
         </div>

@@ -1,39 +1,34 @@
-import snail from "../../images/snail.png";
-import turtle from "../../images/turtle.png";
-import rabbit from "../../images/rabbit.png";
-import cheetah from "../../images/cheetah.png";
-import falcon from "../../images/falcon.png";
+import Hayate from "../../images/hayate.jpg"
+import Deku from "../../images/deku.jpg"
+import Luffy from "../../images/luffy.jpg"
+import Naruto from "../../images/naruto.jpg"
+import Goku from "../../images/goku.jpg"
+import DragonBalls from "../../images/DragonBalls.jpg"
 
 const speedRanks = [
   {
-    name: "Snail",
-    image: snail,
-    tag: "Seriously? You're slower than a snail! Keep clicking or you might start growing a shell!",
-    nextRank: "Turtle"
+    name: "That guy from Naruto, but not one of the other 2 guys",
+    image: Hayate
   },
   {
-    name: "Turtle",
-    image: turtle,
-    tag: "Turtly impressive! You're picking up the pace, but can you outrun your shadow?",
-    nextRank: "Rabbit"
+    name: "Izuku Midoriya (Deku)",
+    image: Deku
   },
   {
-    name: "Rabbit",
-    image: rabbit,
-    tag: "Hopping like a hyperactive rabbit! Don't stop now, you're on fire!",
-    nextRank: "Cheetah"
+    name: "Monkey D. Luffy",
+    image: Luffy
   },
   {
-    name: "Cheetah",
-    image: cheetah,
-    tag: "Whoa, you've got the speed of a cheetah! You're a click ninja!",
-    nextRank: "Falcon"
+    name: "Naruto Uzumaki",
+    image: Naruto
   },
   {
-    name: "Falcon",
-    image: falcon,
-    tag: "Unbelievable! You're soaring like a falcon! You might break the sound barrier soon!",
-    nextRank: "You have reached the ultimate clicking speed, you are now a clicking king!"
+    name: "Goku (Kakarot)",
+    image: Goku
+  },
+  {
+    name: "You have reached the highest level you can have the Dragon Balls as a reward",
+    image: DragonBalls
   }
 ];
 

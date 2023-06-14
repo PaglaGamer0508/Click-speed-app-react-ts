@@ -1,4 +1,4 @@
-import { createContext, useState, ReactNode } from "react";
+import React, { createContext, useState } from "react";
 
 // Define the type for the context
 interface ModalContextType {
@@ -13,7 +13,7 @@ const ModalContext = createContext<ModalContextType | undefined>(undefined);
 
 // Define the props for the ModalProvider component
 interface ModalProviderProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
 // Create the ModalProvider component

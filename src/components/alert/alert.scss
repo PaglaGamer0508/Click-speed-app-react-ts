@@ -1,0 +1,161 @@
+@import "../scss/variables";
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+
+#alert-screen {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  inset: 0;
+  background: rgba(91, 91, 92, 0.479);
+  z-index: 20;
+  display: none;
+
+  // Alert Box
+  #alert-box {
+    background: $background-color;
+    border: 2px solid $button-color;
+    width: 70%;
+    border-radius: 0.2rem;
+    padding: 0.5rem;
+
+    hr {
+      border: none;
+      height: 2px;
+      width: 100%;
+      background: $button-color;
+    }
+
+    @media (max-width: 850px) {
+      width: 90%;
+    }
+
+    // Rank Section Up
+    .rank-section {
+      padding: 1rem;
+    }
+
+    #rank-section-up {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @media (max-width: 600px) {
+        flex-direction: column;
+      }
+
+      .image {
+        width: 40%;
+        
+        @media (max-width: 500px) {
+          width: 100%;
+          margin: auto;
+        }
+
+        img {
+          width: 100%;
+        }
+      }
+
+      #description {
+        display: grid;
+        padding: .5rem;
+
+        div {
+          margin: 0 auto;
+          text-align: center;
+          font-weight: 550;
+        }
+
+        div:nth-child(1) {
+          font-size: 1.3rem;
+          color: $button-color;
+          margin-bottom: 0.5rem;
+
+          @media (max-width: 600px) {
+            font-size: 1.1rem;
+          }
+        }
+
+        div:nth-child(2) {
+          font-size: 1.6rem;
+          color: lavender;
+
+          @media (max-width: 400px) {
+            font-size: 1.1rem;
+          }
+        }
+
+        div:nth-child(3) {
+          padding: 0.5rem;
+          color: $name-color;
+          font-weight: 550;
+
+          #name {
+            font-family: "Abril Fatface", cursive;
+            font-size: 2rem;
+
+            @media (max-width: 600px) {
+              font-size: 1.5rem;
+            }
+
+            @media (max-width: 400px) {
+              font-size: 1.2rem;
+            }
+          }
+
+          #human {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+
+    // Rank Section Down
+    #rank-section-down {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+
+      div {
+        color: white;
+        font-size: 1.3rem;
+        text-align: center;
+
+        #next-name {
+          color: $name-color;
+          font-weight: 550;
+        }
+      }
+
+      img {
+        height: 7rem;
+
+        @media (max-width: 600px) {
+          height: 5rem;
+        }
+      }
+
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-radius: 0.2rem;
+        font-size: 1.5rem;
+        background: $button-color;
+        transition: all 50ms linear;
+        padding: 0.5rem;
+
+        &:hover {
+          background: $button-color-hover;
+        }
+
+        &:active {
+          transform: scale(0.95);
+        }
+      }
+    }
+  }
+}
