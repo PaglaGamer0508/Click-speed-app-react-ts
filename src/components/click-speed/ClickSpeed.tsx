@@ -102,7 +102,7 @@ const ClickSpeed: React.FC = () => {
 
   return (
     <>
-      {!showModal && (
+      {showModal && (
         <Alert
           toggleModal={toggleModal}
           clickSpeedRank={clickPerSecRef.current}
@@ -184,9 +184,11 @@ const ClickSpeed: React.FC = () => {
             <AiOutlinePlus size={40} />
           </button>
 
-          <button id="reset-btn" onClick={handleResetClick}>
-            <GrPowerReset size={35} />
-          </button>
+          <abbr title="Reset">
+            <button id="reset-btn" onClick={handleResetClick}>
+              <GrPowerReset size={35} />
+            </button>
+          </abbr>
         </div>
       </div>
     </>

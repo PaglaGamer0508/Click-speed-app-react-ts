@@ -74,7 +74,7 @@ const Alert: React.FC<Speed> = ({
             <img src={speedRanks[rank + 1].image} alt="" />
           </div>
           <button onClick={hanldeResetClick}>
-            Play Again <GrPowerReset size={20} />
+            Play Again <GrPowerReset size={25} />
           </button>
         </div>
       </div>
