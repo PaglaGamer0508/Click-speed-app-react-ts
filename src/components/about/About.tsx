@@ -1,10 +1,11 @@
 import React from 'react';
 import './about.scss';
+import Logo from "../../assets/click-logo.svg"
 
 const AboutPage: React.FC = () => {
   return (
     <div className="about-container">
-      <h1>About ClickBlitz</h1>
+      <h1>About <img src={Logo} alt="" /> ClickBlitz</h1>
       <p>
         ClickBlitz is a click speed testing application that allows you to measure your clicking speed and ranks it with anime characters. Challenge yourself, improve your clicking skills, and compete with friends to see who can achieve the highest score!
       </p>
