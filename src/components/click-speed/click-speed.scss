@@ -1,10 +1,18 @@
 @import "../scss/variables";
 
+#container{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+
 #click-speed-container {
   display: flex;
   flex-direction: column;
   position: relative;
-  margin: 2rem 0 0  ;
+  margin: 2rem 0 0 ;
   max-width: 32rem;
   background: $background-color;
   padding: 1rem;
@@ -28,7 +36,7 @@
   // These are global (but only for this component)
   span {
     margin-bottom: 0.5rem;
-    color: $text-color;
+    color: white;
   }
 
   input {
@@ -36,9 +44,9 @@
     height: 3rem;
     text-align: center;
     font-size: 1.5rem;
-    color: black;
+    color: white;
     border: $input-border;
-    background: $primary-color;
+    background: transparent;
   }
   // Ends here
 
@@ -79,7 +87,8 @@
     display: flex;
     align-items: center;
     height: 3rem;
-    background: $primary-color;
+    background: transparent;
+    color: white;
     border-radius: 0.2rem;
     margin-bottom: 1rem;
     border: $input-border;
@@ -122,7 +131,8 @@
       #click-input-elements {
         display: flex;
         border-radius: 0.2rem;
-        background: $primary-color;
+        background: transparent;
+        color: white;
         border: $input-border;
 
         input {

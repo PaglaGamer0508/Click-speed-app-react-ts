@@ -2,13 +2,19 @@ import React from "react";
 import ClickSpeed from "./components/click-speed/ClickSpeed";
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
+import AboutPage from "./components/about/About";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 const App: React.FC = () => {
   return (
     <>
-      <Navbar />
-      <div id="container">
-        <ClickSpeed />
-      </div>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<ClickSpeed />} />
+          <Route path="/about" element={<AboutPage />} />
+        </Routes>
+      </Router>
     </>
   );
 };

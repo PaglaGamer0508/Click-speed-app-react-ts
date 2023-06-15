@@ -1,20 +1,21 @@
 import React from "react";
 import "./navbar.scss";
+import {Link} from "react-router-dom"
 
 const Navbar: React.FC = () => {
   return (
     <>
       <nav className="navbar">
-        <a href="/" className="navbar-brand">
+        <Link to="/" className="navbar-brand">
           ClickBlitz
-        </a>
+        </Link>
         <div className="navbar-menu">
-          <a href="/" className="navbar-item active">
+          <Link to="/" className="navbar-item active">
             Home
-          </a>
-          <a href="/about" className="navbar-item">
+          </Link>
+          <Link to="/about" className="navbar-item">
             About
-          </a>
+          </Link>
         </div>
       </nav>
     </>

@@ -19,13 +19,13 @@ const Alert: React.FC<Speed> = ({
   const defineRank = (speed: number) => {
     if (speed >= 0 && speed < 6) {
       return 0;
-    } else if (speed >= 6 && speed < 9) {
+    } else if (speed >= 6 && speed < 10) {
       return 1;
-    } else if (speed >= 9 && speed < 12) {
+    } else if (speed >= 10 && speed < 14) {
       return 2;
-    } else if (speed >= 12 && speed < 15) {
+    } else if (speed >= 14 && speed < 17) {
       return 3;
-    } else if (speed >= 15) {
+    } else if (speed >= 17) {
       return 4;
     }
     // Return a default rank if none of the conditions are met
@@ -49,7 +49,7 @@ const Alert: React.FC<Speed> = ({
     <div id="alert-screen">
       <div id="alert-box">
         <div className="rank-section" id="rank-section-up">
-          <div className="image">
+          <div id="image">
             <img src={speedRanks[rank].image} alt="" />
           </div>
           <div id="description">
@@ -70,7 +70,7 @@ const Alert: React.FC<Speed> = ({
             {rank < 4 ? "Click faster to be" : ""}{" "}
             <span id="next-name">{speedRanks[rank + 1].name}</span>
           </div>
-          <div className="image">
+          <div id="next-image">
             <img src={speedRanks[rank + 1].image} alt="" />
           </div>
           <button onClick={hanldeResetClick}>

@@ -2,10 +2,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
 
 #alert-screen {
-  display: grid;
-  place-items: center;
   position: absolute;
   inset: 0;
+  display: grid;
+  place-items: center;
   background: rgba(91, 91, 92, 0.479);
   z-index: 20;
 
@@ -13,7 +13,7 @@
   #alert-box {
     background: $background-color;
     border: 2px solid $button-color;
-    width: 70%;
+    width: 60%;
     border-radius: 0.2rem;
     padding: 0.5rem;
 
@@ -42,22 +42,25 @@
         flex-direction: column;
       }
 
-      .image {
-        width: 40%;
-        
+      #image {
+        position: relative;
+        height: 12rem; /* Set your desired fixed height here */
+      
         @media (max-width: 500px) {
-          width: 100%;
+          height: 150px; /* Adjust the height for smaller screens */
           margin: auto;
         }
-
+      
         img {
           width: 100%;
+          height: 100%;
         }
       }
+      
 
       #description {
         display: grid;
-        padding: .5rem;
+        padding: 0.5rem;
 
         div {
           margin: 0 auto;
@@ -128,11 +131,16 @@
         }
       }
 
-      img {
+      #next-image {
         height: 7rem;
 
         @media (max-width: 600px) {
           height: 5rem;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
         }
       }
 

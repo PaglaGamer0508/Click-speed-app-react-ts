@@ -1,0 +1,34 @@
+@import "../scss/variables";
+
+.about-container {
+  max-width: 90%;
+  margin: 1rem auto;
+  padding: 2rem;
+  background-color: $background-color;
+  color: #fff;
+  border-radius: 10px;
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: $button-color;
+  }
+
+  p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 600px) {
+    padding: 1rem;
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
