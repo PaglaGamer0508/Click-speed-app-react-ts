@@ -29,7 +29,9 @@ const Alert: React.FC<Speed> = ({
       return 4;
     }
     // Return a default rank if none of the conditions are met
-    return 0;
+    else {
+      return 0;
+    }
   };
 
   const hanldeResetClick = () => {

@@ -11,7 +11,7 @@ const App: React.FC = () => {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<ClickSpeed />} />
+          <Route path="/" element={<ClickSpeed />} index />
           <Route path="/about" element={<AboutPage />} />
         </Routes>
       </Router>
