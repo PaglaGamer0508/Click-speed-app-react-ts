@@ -26,11 +26,11 @@ const ClickSpeed: React.FC = () => {
   };
 
   useEffect(() => {
-    const storedHighScore = localStorage.getItem("highScore");
+    const storedHighScore = localStorage.getItem("clickBlitz-highScore");
     if (storedHighScore) {
       setHighScore(parseFloat(storedHighScore));
     } else {
-      localStorage.setItem("highScore", highScore.toString());
+      localStorage.setItem("clickBlitz-highScore", highScore.toString());
     }
     setFavTimer(timer);
   }, []);
@@ -42,7 +42,7 @@ const ClickSpeed: React.FC = () => {
         clearTimeout(timeOutRef.current);
         if (clickPerSecRef.current > highScore) {
           setHighScore(clickPerSecRef.current);
-          localStorage.setItem("highScore", clickPerSecRef.current.toString());
+          localStorage.setItem("clickBlitz-highScore", clickPerSecRef.current.toString());
         }
         toggleModal();
       }, timer * 1000);
