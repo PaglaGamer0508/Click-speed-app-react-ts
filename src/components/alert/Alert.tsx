@@ -52,9 +52,9 @@ const Alert: React.FC<Speed> = ({
       <div id="alert-box">
         <div className="rank-section" id="rank-section-up">
           <div id="image">
-            <img src={speedRanks[rank].image} alt="" />
+            <img src={speedRanks[rank].image} alt="" className="unselectable" />
           </div>
-          <div id="description">
+          <div id="description" className="unselectable">
             <div>you click speed is: {clickSpeedRank} cps </div>
             <div>You are </div>
             <div>
@@ -68,14 +68,14 @@ const Alert: React.FC<Speed> = ({
         <hr />
 
         <div className="rank-section" id="rank-section-down">
-          <div id="next-rank-text">
+          <div id="next-rank-text" className="unselectable">
             {rank < 4 ? "Click faster to be" : ""}{" "}
             <span id="next-name">{speedRanks[rank + 1].name}</span>
           </div>
           <div id="next-image">
-            <img src={speedRanks[rank + 1].image} alt="" />
+            <img src={speedRanks[rank + 1].image} alt="" className="unselectable" />
           </div>
-          <button onClick={hanldeResetClick}>
+          <button onClick={hanldeResetClick} className="unselectable">
             Play Again <GrPowerReset size={25} />
           </button>
         </div>

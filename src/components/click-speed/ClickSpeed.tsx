@@ -140,13 +140,13 @@ const ClickSpeed: React.FC = () => {
 
           {/* Time Remaining Section */}
           <div id="time-remaining-section">
-            <div className="time-remaining-section-label">Time Remaining</div>
+            <div className="time-remaining-section-label unselectable">Time Remaining</div>
             <input type="text" id="time-remaining" disabled value={timer} />
-            <div className="time-remaining-section-label">seconds</div>
+            <div className="time-remaining-section-label unselectable">seconds</div>
           </div>
 
           {/* Click Section */}
-          <div id="click-section">
+          <div id="click-section" className="unselectable">
             <div className="click-elements" id="click-per-second">
               <span className="">Clicks per second</span>
               <div id="click-input-elements">
@@ -171,7 +171,7 @@ const ClickSpeed: React.FC = () => {
 
           {/* Button Section */}
           <div id="btn-section">
-            <span>Click the + button to start</span>
+            <span className="unselectable">Click the + button to start</span>
             <button
               id="plus-btn"
               onClick={HandlePlusClick}
